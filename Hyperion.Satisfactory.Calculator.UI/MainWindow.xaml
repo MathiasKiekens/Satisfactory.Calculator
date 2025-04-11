@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Button
+            Name="Testbtn"
+            Click="Testbtn_OnClick"
+            Content="Hello World"
+            Background="LightGray"
+            ></Button>
     </Grid>
 </Window>

@@ -20,4 +20,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void Testbtn_OnClick(object sender, RoutedEventArgs e)
+    {
+        Console.WriteLine("Hello World!");
+    }
 }
