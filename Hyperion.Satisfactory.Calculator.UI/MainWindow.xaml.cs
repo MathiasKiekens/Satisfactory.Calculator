@@ -1,19 +1,8 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Microsoft.Win32;
 
 namespace Hyperion.Satisfactory.Calculator.UI;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
@@ -21,8 +10,26 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private void Testbtn_OnClick(object sender, RoutedEventArgs e)
+    private void LoadSaveButton_OnClick(object sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Hello World!");
+        // Open a file dialog to select an existing save file
+        OpenFileDialog openFileDialog = new OpenFileDialog
+        {
+            Filter = "Save Files (*.json)|*.json|All Files (*.*)|*.*",
+            Title = "Select a Save File"
+        };
+
+        if (openFileDialog.ShowDialog() == true)
+        {
+            string filePath = openFileDialog.FileName;
+            MessageBox.Show($"Loaded save file: {filePath}", "Load Save");
+            // Add logic to load the save file
+        }
+    }
+
+    private void NewSaveButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Starting a new save!", "New Save");
+        // Add logic to initialize a new save
     }
 }
